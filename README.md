@@ -1,0 +1,1 @@
+本项目摘抄自https://github.com/buppt/ChineseNER，预计会有改动
