@@ -69,12 +69,9 @@ class Model:
             
             loss = tf.reduce_mean(-log_likelihood)
             
-            if self.config['test'] :
-            '''
-            viterbi_sequence,viterbi_score = tf.contrib.crf.crf_decode(full_connect,transition_params,tf.tile(np.array([self.sen_len]),np.array([self.batch_size])))
+            model.viterbi_sequence,self.viterbi_score = tf.contrib.crf.crf_decode(full_connect,transition_params,tf.tile(np.array([self.sen_len]),np.array([self.batch_size])))
             
             optimizer = tf.train.AdamOptimizer(self.config['lr'])
-            self.train_op = optimizer.minimize(loss)
-            '''
-            这三句要好好查查api，毕竟还没查呢
-            而且如何实现adam与sgd共同使用？
+            self.train_operator = optimizer.minimize(loss)
+            #train_op是反向传播操作（梯度求导）
+            #sess.run(train.op)即可完成梯度更新，非常的方便

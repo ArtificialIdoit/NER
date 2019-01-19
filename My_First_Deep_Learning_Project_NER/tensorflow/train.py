@@ -19,6 +19,9 @@ import tensorflow as tf
 #from bilstm_crf import Model
 #from utils import *
 #这两个还没写，后面补齐
+#暂用np.random.choice()实现
+
+from utils import *
 
 with codecs.open('../data/renmindata.pkl','rb') as inp:
 #with...as... 使得语句可以自行清理内存，也防止数据无意间被改动。
