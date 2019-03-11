@@ -3,10 +3,9 @@
 import codecs
 import re
 import pdb
-'''
 import pandans as pd
-'''
 import collections
+from compiler.ast import flatten
 
 
 def originHandle():
@@ -75,8 +74,48 @@ def sentence2split():
         for sentence in sentences:
             if sentence != ' ':
                 outp.write(sentence.strip()+'\n')
-        # 多个分隔符用[]包住，不明白/[0]是做什么的?
         #每一句单独成行
+
+
+def data2pkl():
+    datas = list()
+    labels = list()
+    linedata = list()
+    linelabel = list()
+    tags =set()
+    tags.add('')
+    linenums = 0
+    # 干啥的？
+    input_data = codecs.open('renmin4.txt', 'r', 'utf-8')
+    for line in input_data.readlines():
+        linenums+=1
+        line = line.split()
+        linedata=[]
+        linelabel=[]
+        numNotO=0
+        for word in line:
+            word = word.split('/')
+            linedata.append(word[0])
+            linelabel.append(word[1])
+            tags.add(word[1])
+            if word[1] != 'O':
+                numNotO+=1
+        if numNotO!=0:
+            datas.append(linedata)
+            labels.append(linelabel)
+    input_data.close()
+    print(len(datas))
+    print(len(labels))
+    print(linenums)
+    # 所以这为什么去掉不含有O的一行？
+    # 这样datas会有问题吧？
+    all_words = flatten(datas)
+    sr_allwords = pd.Series(all_words)
+    sr_allwords = sr_allwords.value_counts()
+    set_words = sr_allwords.index
+    set_ids = range(1,len(set_words)+1)
+
+
 
 
 if __name__ == '__main__':
