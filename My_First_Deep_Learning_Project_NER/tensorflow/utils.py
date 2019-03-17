@@ -8,6 +8,14 @@ def randomsample(x,y,batch_size):
     #该函数用于随机采样
     sample = np.random.choice(range(x.shape[0]),batch_size)
     return x[sample],y[sample]
+
+def next batch():
+    #TODO:
+
+
+def calculate(x,y,id2word,id2tag,res=[]):
+    #TODO:
+    
     
 def train(model,sess,saver,epochs,batch_size,x_train,x_test,id2word,id2tag):
     batch_num = int(x_train[0]/batch_size)
@@ -15,7 +23,8 @@ def train(model,sess,saver,epochs,batch_size,x_train,x_test,id2word,id2tag):
     for epoch in range(epochs):
         for batch in range(batch_num):
             x_batch,y_batch = randomsample(x_train,y_train,batch_size)
-            predict,_ = sess.run([model.viterbi_sequence,model.train_operator],feed_dict = {model.input_data:x_batch,model.labels:y_batch})
+            predict,_ = sess.run([model.viterbi_sequence,model.train_operator],feed_dict = {model.input_
+                                                                                            :x_batch,model.labels:y_batch})
             #sess.run依次执行多个计算结果
             accuracy = 0
             if batch%200==0:
@@ -34,7 +43,7 @@ def train(model,sess,saver,epochs,batch_size,x_train,x_test,id2word,id2tag):
             entityres=[]
             entityall=[]
             for batch in range(batch_num):
-                x_batch,y_batch = data_train.next_batch(batch_size)
+                x_batch,y_batch = next_batch(batch_size)
                 #TODO:这块还是得写,避不开的
                 feed_dict = {model.input_data:x_batch,model.labels:y_batch}
                 pre = sess.run([model.viterbi_sequence],feed_dict)
