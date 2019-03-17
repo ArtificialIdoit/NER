@@ -9,7 +9,7 @@ def randomsample(x,y,batch_size):
     sample = np.random.choice(range(x.shape[0]),batch_size)
     return x[sample],y[sample]
 
-def next batch():
+def next batch(batch_num):
     #TODO:
 
 
