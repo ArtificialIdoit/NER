@@ -35,6 +35,7 @@ def train(model,sess,saver,epochs,batch_size,x_train,x_test,id2word,id2tag):
             entityall=[]
             for batch in range(batch_num):
                 x_batch,y_batch = data_train.next_batch(batch_size)
+                #TODO:这块还是得写,避不开的
                 feed_dict = {model.input_data:x_batch,model.labels:y_batch}
                 pre = sess.run([model.viterbi_sequence],feed_dict)
                 pre = pre[0]
@@ -46,5 +47,10 @@ def train(model,sess,saver,epochs,batch_size,x_train,x_test,id2word,id2tag):
                 zhao = float(len(jiaoji))/len(entityall)
                 print("train")
                 print("zhun:",zhun)
-                print()
-                
+                print("zhao:",zhao)
+                print("f",(2*zhun*zhao)/(zhun+zhao))
+                else:
+                    print("zhun:0")
+
+
+#后面是实体抽取等工作，就暂时先不写了。
