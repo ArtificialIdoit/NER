@@ -77,6 +77,9 @@ def train(model,sess,saver,epochs,batch_size,x_train,y_train,x_test,y_test,id2wo
                 pre = pre[0]
                 entityres = calculate(x_batch,pre,id2word,id2tag,entityres)
                 entityall = calculate(x_batch,y_batch,id2word,id2tag,entityall)
+	    print(entityres)
+	    print(entityall)
+	    print(jiaoji)
             jiaoji = [i for i in entityres if i in entityall]
             if len(jiaoji)!= 0:
                 zhun = float(len(jiaoji))/len(entityres)
@@ -84,7 +87,7 @@ def train(model,sess,saver,epochs,batch_size,x_train,y_train,x_test,y_test,id2wo
                 print("train")
                 print("zhun:",zhun)
                 print("zhao:",zhao)
-                print("f",(2*zhun*zhao)/(zhun+zhao))
+                print("f:",(2*zhun*zhao)/(zhun+zhao))
             else:
                     print("zhun:0")
 
@@ -106,6 +109,6 @@ def train(model,sess,saver,epochs,batch_size,x_train,y_train,x_test,y_test,id2wo
                 print("zhao:", zhao)
                 print("f:", (2 * zhun * zhao) / (zhun + zhao))
             else:
-                print("zhun:", 0)
+                print("zhun:0")
 
 # 后面是实体抽取等工作，就暂时先不写了。
