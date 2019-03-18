@@ -68,7 +68,7 @@ config = {}
 # config包含超参和一些参数
 config['lr'] = 1e-4
 config['embedding_dim'] = 100
-config['dropout_keep'] = 1
+config['dropout_keep'] = 0.5
 # 词嵌入向量的维度，我希望能更大一点，但是还要考虑到原有的词向量
 config['sentence_len'] =  x_train[0].shape[0]
 #没有最后的[0]实际上是一个tuple,而非int
