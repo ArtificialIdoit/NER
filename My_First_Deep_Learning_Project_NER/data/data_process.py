@@ -7,10 +7,12 @@ import numpy as np
 import pandas as pd
 import collections
 from compiler.ast import flatten
-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 def originHandle():
-    with codecs.open('./renmin.txt','r') as inp,codecs.open('./renmin2.txt','w') as outp:
+    with open('./renmin.txt','r') as inp,open('./renmin2.txt','w') as outp:
         for line in inp.readlines():
             line = line.split('  ')
             # 两个空格为分隔符，第一个是文本标识符,最后一个是空字符
@@ -69,9 +71,9 @@ def originalHandle2():
 
 
 def sentence2split():
-    with codecs.open('./renmin3.txt', 'r') as inp, codecs.open('./renmin4.txt', 'w', 'utf-8') as outp:
+    with open('./renmin3.txt', 'r') as inp, codecs.open('./renmin4.txt', 'w', 'utf-8') as outp:
         texts = inp.read().decode('utf-8')
-        sentences = re.split('[，。！？、‘’“”:]/[O]'.decode('utf-8'), texts)
+        sentences = re.split('[，。！？、‘’“”:（）]/[O]'.decode('utf-8'), texts)
         for sentence in sentences:
             if sentence != ' ':
                 outp.write(sentence.strip()+'\n')
@@ -154,7 +156,7 @@ def data2pkl():
     x_train,x_valid,y_train,y_valid = train_test_split(x_train,y_train,test_size=0.2,random_state=43)
 
     import  pickle
-    with codecs.open('../renmindata.pkl','wb') as outp:
+    with open('../renmindata.pkl','wb') as outp:
         pickle.dump(word2id, outp)
         pickle.dump(id2word, outp)
         pickle.dump(tag2id, outp)
