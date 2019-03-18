@@ -156,7 +156,7 @@ def data2pkl():
     x_train,x_valid,y_train,y_valid = train_test_split(x_train,y_train,test_size=0.2,random_state=43)
 
     import  pickle
-    with open('../renmindata.pkl','wb') as outp:
+    with open('./renmindata.pkl','wb') as outp:
         pickle.dump(word2id, outp)
         pickle.dump(id2word, outp)
         pickle.dump(tag2id, outp)

@@ -89,7 +89,7 @@ model = Model(config,embedding_pre)
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
     # 有variables必须有这句
-    saver = None #tf.train.Saver()
+    saver = tf.train.Saver()
     # fixme:这里有问题，暂时不存储了
     # 保存model用的
     train(model,sess,saver,epochs,batch_size,x_train,y_train,x_test,y_test,id2word,id2tag)
