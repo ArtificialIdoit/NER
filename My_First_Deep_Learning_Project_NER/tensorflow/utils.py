@@ -14,7 +14,7 @@ def next_batch(x,y,batch,batch_num,batch_size):
         return x[batch* batch_size:], y[batch * batch_size:]
     #这里有问题
     else:
-        return x[batch* batch_size:batch * batch_size], y[batch * batch_size:batch * batch_size]
+        return x[batch* batch_size:(batch+1) * batch_size], y[batch * batch_size:(batch+1) * batch_size]
 
 
 
@@ -23,18 +23,20 @@ def calculate(x,y,id2word,id2tag,res=[]):
     entity=[]
     for i in range(len(x)):
         for j in range(len(x[i])):
+            print(i,j)
             if x[i][j]==0 or y[i][j]==0:
                 # 为什么x也需要判零？
+                # 因为长度小于60的句子，实际上填充的字就是0对应的字
                 continue
             if id2tag[y[i][j]][0] == 'B':
                 entity=id2word[x[i][j]] + '/' + id2tag[y[i][j]]
             elif id2tag[y[i][j]][0] == 'M' and len(entity)!=0 and entity[-1].split('/')[1][1:]==id2tag[y[i][j]][1:]:
                 entity.append(id2word[x[i][j]] + '/' + id2tag[y[i][j]])
-            elif id2tag[y[i][j]][0] == 'M' and len(entity)!=0 and entity[-1].split('/')[1][1:]==id2tag[y[i][j]][1:]:
+            elif id2tag[y[i][j]][0] == 'E' and len(entity)!=0 and entity[-1].split('/')[1][1:]==id2tag[y[i][j]][1:]:
                 entity.append(id2word[x[i][j]] + '/' + id2tag[y[i][j]])
                 entity.append(str(i))
                 entity.append(str(j))
-                # 这两句是什么意思？
+                # 这两句保存位置
                 res.append(entity)
                 entity=[]
             else:
@@ -45,14 +47,13 @@ def calculate(x,y,id2word,id2tag,res=[]):
 
 
     
-def train(model,sess,saver,epochs,batch_size,x_train,x_test,id2word,id2tag):
-    batch_num = int(x_train[0]/batch_size)
+def train(model,sess,saver,epochs,batch_size,x_train,y_train,x_test,y_test,id2word,id2tag):
+    batch_num = int(x_train.shape[0]/batch_size)
     batch_num_test = int(x_test.shape[0]/batch_size)
     for epoch in range(epochs):
         for batch in range(batch_num):
             x_batch,y_batch = randomsample(x_train,y_train,batch_size)
-            predict,_ = sess.run([model.viterbi_sequence,model.train_operator],feed_dict = {model.input_
-                                                                                            :x_batch,model.labels:y_batch})
+            predict,_ = sess.run([model.viterbi_sequence,model.train_operator],feed_dict = {model.input_data:x_batch,model.labels:y_batch})
             #sess.run依次执行多个计算结果
             accuracy = 0
             if batch%200==0:
@@ -66,12 +67,12 @@ def train(model,sess,saver,epochs,batch_size,x_train,x_test,id2word,id2tag):
         print(path_name)
         if epoch%3==0:
             #建议整合进前一个循环里.
-            saver.save(sess,path_name)
+            #saver.save(sess, path_name)
             print("model has been saved")
             entityres=[]
             entityall=[]
             for batch in range(batch_num):
-                x_batch,y_batch = next_batch(batch)
+                x_batch,y_batch = next_batch(x_train,y_train,batch,batch_num,batch_size)
                 #TODO:这块还是得写,避不开的
                 feed_dict = {model.input_data:x_batch,model.labels:y_batch}
                 pre = sess.run([model.viterbi_sequence],feed_dict)
@@ -92,7 +93,7 @@ def train(model,sess,saver,epochs,batch_size,x_train,x_test,id2word,id2tag):
             entityres = []
             entityall = []
             for batch in range(batch_num_test):
-                x_batch, y_batch = next_batch(batch_size)
+                x_batch, y_batch = next_batch(x_test,y_test,batch,batch_num,batch_size)
                 feed_dict = {model.input_data: x_batch, model.labels: y_batch}
                 pre = sess.run([model.viterbi_sequence], feed_dict)
                 pre = pre[0]
@@ -109,4 +110,4 @@ def train(model,sess,saver,epochs,batch_size,x_train,x_test,id2word,id2tag):
             else:
                 print "zhun:", 0
 
-#后面是实体抽取等工作，就暂时先不写了。
+# 后面是实体抽取等工作，就暂时先不写了。

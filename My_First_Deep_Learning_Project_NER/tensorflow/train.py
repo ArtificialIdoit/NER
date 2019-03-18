@@ -70,7 +70,8 @@ config['lr'] = 1e-4
 config['embedding_dim'] = 100
 config['dropout_keep'] = 1
 # 词嵌入向量的维度，我希望能更大一点，但是还要考虑到原有的词向量
-config['sentence_len'] =  x_train[0].shape
+config['sentence_len'] =  x_train[0].shape[0]
+#没有最后的[0]实际上是一个tuple,而非int
 config['batch_size'] = batch_size
 config['vocabulary_size'] = len(word2id)+1
 # 原作者为什么要加1？是为了检索方便,因为里面都是从1开始的。
@@ -79,6 +80,7 @@ config['pretrained'] = False
 
 embedding_pre = []
 # embedding_pre 待写
+#预先训练的词向量
 # 原作者这里有三个判断，我直接略去了
 
 print('begin to train...')
@@ -87,7 +89,8 @@ model = Model(config,embedding_pre)
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
     # 有variables必须有这句
-    saver = tf.train.Saver()
+    saver = None #tf.train.Saver()
+    # fixme:这里有问题，暂时不存储了
     # 保存model用的
-    train(model,sess,saver,epochs,batch_size,x_train,x_test,id2word,id2tag)
+    train(model,sess,saver,epochs,batch_size,x_train,y_train,x_test,y_test,id2word,id2tag)
     # train的参数查一查
