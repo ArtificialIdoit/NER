@@ -1,0 +1,68 @@
+config['lr'] = 1e-3
+config['embedding_dim'] = 100
+config['dropout_keep'] = 0.5
+# 词嵌入向量的维度，我希望能更大一点，但是还要考虑到原有的词向量
+config['sentence_len'] =  x_train[0].shape[0]
+#没有最后的[0]实际上是一个tuple,而非int
+config['batch_size'] = batch_size
+config['vocabulary_size'] = len(word2id)+1
+# 原作者为什么要加1？是为了检索方便,因为里面都是从1开始的。
+config['tag_size'] = len(tag2id)
+config['pretrained'] = False
+
+('zhun:', 0.8799110452186805)
+('zhao:', 0.4496455435900211)
+('f:', 0.5951579399756465)
+test
+('zhun:', 0.8450704225352113)
+('zhao:', 0.38081805359661497)
+('f:', 0.5250364608653378)
+0.962955729167
+./model/model31.ckpt
+
+
+config['lr'] = 1e-2
+config['embedding_dim'] = 100
+config['dropout_keep'] = 0.5
+# 词嵌入向量的维度，我希望能更大一点，但是还要考虑到原有的词向量
+config['sentence_len'] =  x_train[0].shape[0]
+#没有最后的[0]实际上是一个tuple,而非int
+config['batch_size'] = batch_size
+config['vocabulary_size'] = len(word2id)+1
+# 原作者为什么要加1？是为了检索方便,因为里面都是从1开始的。
+config['tag_size'] = len(tag2id)
+config['pretrained'] = False
+
+train
+('zhun:', 0.9903726540104927)
+('zhao:', 0.9909085989501596)
+('f:', 0.9906405539926423)
+test
+('zhun:', 0.8773466833541927)
+('zhao:', 0.8651269393511989)
+('f:', 0.8711939636040835)
+0.99765625
+./model/model31.ckpt
+
+
+config['lr'] = 1.5e-2
+config['embedding_dim'] = 100
+config['dropout_keep'] = 0.5
+# 词嵌入向量的维度，我希望能更大一点，但是还要考虑到原有的词向量
+config['sentence_len'] =  x_train[0].shape[0]
+#没有最后的[0]实际上是一个tuple,而非int
+config['batch_size'] = batch_size
+config['vocabulary_size'] = len(word2id)+1
+# 原作者为什么要加1？是为了检索方便,因为里面都是从1开始的。
+config['tag_size'] = len(tag2id)
+config['pretrained'] = False
+
+train
+('zhun:', 0.9547890154052244)
+('zhao:', 0.9256994426105308)
+('f:', 0.9400192334111828)
+test
+('zhun:', 0.8182487122884474)
+('zhao:', 0.7842031029619182)
+('f:', 0.8008642419877565)
+0.995182291667
