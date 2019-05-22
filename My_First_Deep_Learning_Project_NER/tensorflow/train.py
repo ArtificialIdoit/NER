@@ -35,7 +35,7 @@ epochs = 31
 batch_size = 32
 
 config = {}
-config['lr'] = 7.5e-3
+config['lr'] = 6.25e-3
 config['embedding_dim'] = 100
 config['dropout_keep'] = 0.5
 config['sentence_len'] = x_train[0].shape[0]
