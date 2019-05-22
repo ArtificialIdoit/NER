@@ -1,4 +1,48 @@
-config['lr'] = 1e-3
+epochs = 31
+batch_size = 32
+
+
+config = {}
+config['lr'] = 1e-1
+config['embedding_dim'] = 100
+config['dropout_keep'] = 0.5
+config['sentence_len'] = x_train[0].shape[0]
+config['batch_size'] = batch_size
+config['vocabulary_size'] = len(word2id) + 1
+config['tag_size'] = len(tag2id)
+config['pretrained'] = False
+
+train
+('zhun:', 0.3488421349901158)
+('zhao:', 0.26449333547454634)
+('f:', 0.30086771198051454)
+test
+('zhun:', 0.35513169845594916)
+('zhao:', 0.267945862600651)
+('f:', 0.30543892198027534)
+
+
+config = {}
+config['lr'] = 5e-2
+config['embedding_dim'] = 100
+config['dropout_keep'] = 0.5
+config['sentence_len'] = x_train[0].shape[0]
+config['batch_size'] = batch_size
+config['vocabulary_size'] = len(word2id) + 1
+config['tag_size'] = len(tag2id)
+config['pretrained'] = False
+
+train
+('zhun:', 0.5096103896103896)
+('zhao:', 0.4201059900433596)
+('f:', 0.4605498664945277)
+test
+('zhun:', 0.5038922785609089)
+('zhao:', 0.41031351721774884)
+('f:', 0.4523135033050047)
+
+
+config['lr'] = 1.5e-2
 config['embedding_dim'] = 100
 config['dropout_keep'] = 0.5
 # 词嵌入向量的维度，我希望能更大一点，但是还要考虑到原有的词向量
@@ -10,15 +54,15 @@ config['vocabulary_size'] = len(word2id)+1
 config['tag_size'] = len(tag2id)
 config['pretrained'] = False
 
-('zhun:', 0.8799110452186805)
-('zhao:', 0.4496455435900211)
-('f:', 0.5951579399756465)
+train
+('zhun:', 0.9547890154052244)
+('zhao:', 0.9256994426105308)
+('f:', 0.9400192334111828)
 test
-('zhun:', 0.8450704225352113)
-('zhao:', 0.38081805359661497)
-('f:', 0.5250364608653378)
-0.962955729167
-./model/model31.ckpt
+('zhun:', 0.8182487122884474)
+('zhao:', 0.7842031029619182)
+('f:', 0.8008642419877565)
+0.995182291667
 
 
 config['lr'] = 1e-2
@@ -45,7 +89,26 @@ test
 ./model/model31.ckpt
 
 
-config['lr'] = 1.5e-2
+config = {}
+config['lr'] = 5e-3
+config['embedding_dim'] = 100
+config['dropout_keep'] = 0.5
+config['sentence_len'] = x_train[0].shape[0]
+config['batch_size'] = batch_size
+config['vocabulary_size'] = len(word2id) + 1
+config['tag_size'] = len(tag2id)
+config['pretrained'] = False
+
+('zhun:', 0.9530380830124091)
+('zhao:', 0.9538033295862106)
+('f:', 0.9534205527463413)
+test
+('zhun:', 0.9277377274287676)
+('zhao:', 0.925989378105191)
+('f:', 0.9268627282860328)
+
+
+config['lr'] = 1e-3
 config['embedding_dim'] = 100
 config['dropout_keep'] = 0.5
 # 词嵌入向量的维度，我希望能更大一点，但是还要考虑到原有的词向量
@@ -57,12 +120,54 @@ config['vocabulary_size'] = len(word2id)+1
 config['tag_size'] = len(tag2id)
 config['pretrained'] = False
 
-train
-('zhun:', 0.9547890154052244)
-('zhao:', 0.9256994426105308)
-('f:', 0.9400192334111828)
+('zhun:', 0.8799110452186805)
+('zhao:', 0.4496455435900211)
+('f:', 0.5951579399756465)
 test
-('zhun:', 0.8182487122884474)
-('zhao:', 0.7842031029619182)
-('f:', 0.8008642419877565)
-0.995182291667
+('zhun:', 0.8450704225352113)
+('zhao:', 0.38081805359661497)
+('f:', 0.5250364608653378)
+0.962955729167
+./model/model31.ckpt
+
+
+config = {}
+config['lr'] = 1e-4
+config['embedding_dim'] = 100
+config['dropout_keep'] = 0.5
+config['sentence_len'] = x_train[0].shape[0]
+config['batch_size'] = batch_size
+config['vocabulary_size'] = len(word2id) + 1
+config['tag_size'] = len(tag2id)
+config['pretrained'] = False
+
+train
+('zhun:', 0.8063343108504398)
+('zhao:', 0.36796745356244315)
+('f:', 0.5053297066823494)
+test
+('zhun:', 0.799396681749623)
+('zhao:', 0.36320027411341443)
+('f:', 0.49946990222641074)
+
+
+config = {}
+config['lr'] = 1e-5
+config['embedding_dim'] = 100
+config['dropout_keep'] = 0.5
+config['sentence_len'] = x_train[0].shape[0]
+config['batch_size'] = batch_size
+config['vocabulary_size'] = len(word2id) + 1
+config['tag_size'] = len(tag2id)
+config['pretrained'] = False
+
+0.923958333333
+0.934895833333
+0.9265625
+./model/model30.ckpt
+model has been saved
+1
+18681
+0
+zhun:0
+zhun:0

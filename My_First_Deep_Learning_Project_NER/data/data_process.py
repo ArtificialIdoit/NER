@@ -235,3 +235,4 @@ if __name__ == '__main__':
     sentence2split('./ccks.txt', './ccks2.txt')
     data2pkl('./ccks2.txt', 'ccksdata.pkl')
     # 相对路径遍历的时候会出很多问题，要重点考虑
+
