@@ -119,22 +119,22 @@ def ccks_data_process(path):
             os.chdir('..')
         os.chdir('..')
 
-def getCCKSEntity():
-    with open('./病史特点.train.txt', 'r') as inp, codecs.open('./病史特点.train2.txt', 'w', 'utf-8') as outp:
-        while True:
-            line = inp.readline().decode('utf-8')
-            if not line:
-                break
-            if line[0] not in '，,。.！!？?、‘’\'\"“”:：;；（）()':
-                outp.write(line[0] +'/'+line[2:-1]+' ')
-            else:
-                outp.write('\n')
-        '''
-        sentences = re.split('[，,。.！!？?、‘’\'\"“”:：;；（）()] [N]'.decode('utf-8'), texts)
-        for sentence in sentences:
-            if sentence != ' ':
-                outp.write(sentence.strip() + '\n')
-        '''
+# def getCCKSEntity():
+#     with open('./病史特点.train.txt', 'r') as inp, codecs.open('./病史特点.train2.txt', 'w', 'utf-8') as outp:
+#         while True:
+#             line = inp.readline().decode('utf-8')
+#             if not line:
+#                 break
+#             if line[0] not in '，,。.！!？?、‘’\'\"“”:：;；（）()':
+#                 outp.write(line[0] +'/'+line[2:-1]+' ')
+#             else:
+#                 outp.write('\n')
+#         '''
+#         sentences = re.split('[，,。.！!？?、‘’\'\"“”:：;；（）()] [N]'.decode('utf-8'), texts)
+#         for sentence in sentences:
+#             if sentence != ' ':
+#                 outp.write(sentence.strip() + '\n')
+#         '''
 
 def data2pkl(txt1,pkl1):
     datas = list()

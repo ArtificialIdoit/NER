@@ -22,6 +22,7 @@ class Model:
                                               [self.config['vocabulary_size'], self.config['embedding_dim']])
             if self.config['pretrained']:
                 embedding_init = word_embeddings.assign(self.config['embeddings_pretrained'])
+                # 这块未来可能要改！
 
             input_embedded = tf.nn.embedding_lookup(word_embeddings, self.input_data)
             input_embedded = tf.nn.dropout(input_embedded, self.config['dropout_keep'])

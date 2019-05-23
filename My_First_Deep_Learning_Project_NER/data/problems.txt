@@ -1,0 +1,8 @@
+loading pre-trained model from ./model/model60.ckpt.....
+Enter your input: 青年男性，25岁，河北承德市双滦区人，现住河北省承德市双滦区，主因右臀部外伤后伴疼痛出血1小时于2016-05-26日13：18分入院。
+result:
+Enter your input: 青年男性25岁河北承德市双滦区人现住河北省承德市双滦区，主因右臀部外伤后伴疼痛出血1小时于2016-05-26日13：18分入院。
+result:
+_BODY:右臀部
+_SIGNS:疼痛
+_SIGNS:出血
