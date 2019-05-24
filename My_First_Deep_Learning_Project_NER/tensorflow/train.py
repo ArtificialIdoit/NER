@@ -66,6 +66,7 @@ if len(sys.argv) == 2 and sys.argv[1] == "pretrained":
 
 if len(sys.argv) == 2 and sys.argv[1] == "test":
     print "begin to test..."
+    print(sys.argv)
     model = Model(config, embedding_pre)
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
@@ -78,6 +79,8 @@ if len(sys.argv) == 2 and sys.argv[1] == "test":
             print 'loading pre-trained model from %s.....' % path
             saver.restore(sess, path)
             test_input(model, sess, word2id, id2tag, batch_size)
+            # FIXME:为什么运行起来会出问题，debug模式没问题？
+            # FIXME:详见problems.txt
 
 if len(sys.argv) == 3:
     print "begin to extraction..."
