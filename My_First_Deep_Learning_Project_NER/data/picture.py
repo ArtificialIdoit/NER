@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 import numpy as np
 import matplotlib.pyplot as plt
-import sys
 import codecs
 
 def lr_plot(path):
@@ -16,17 +19,17 @@ def lr_plot(path):
             line = log.readline()
             if not line:
                 break
-            elif u'config[\'lr\']' is in line:
+            elif u'config[\'lr\']' in line:
                 learning_rate.append(float(line.split(' ')[-1]))
-            elif u'train' in line:
-                train_precision.append(log.readline().split(' ')[-1][:-1])
-                train_recall.append(log.readline().split(' ')[-1][:-1])
-                train_f_score.append(log.readline().split(' ')[-1][:-1])
-                log.readline()
-                if u'test' in log.readline():
-                    test_precision.append(log.readline().split(' ')[-1][:-1])
-                    test_recall.append(log.readline().split(' ')[-1][:-1])
-                    test_f_score.append(log.readline().split(' ')[-1][:-1])
+            elif u'train\n' == line:
+                train_precision.append(float(log.readline().split(u' ')[-1][:-2]))
+                train_recall.append(float(log.readline().split(u' ')[-1][:-2]))
+                train_f_score.append(float(log.readline().split(u' ')[-1][:-2]))
+                line = log.readline()
+                if u'test\n' == line:
+                    test_precision.append(float(log.readline().split(u' ')[-1][:-2]))
+                    test_recall.append(float(log.readline().split(u' ')[-1][:-2]))
+                    test_f_score.append(float(log.readline().split(u' ')[-1][:-2]))
         plt.title('learning_rate versus rate')
         plt.plot(learning_rate,train_precision, 'red', label='train_precision')
         plt.plot(learning_rate, train_recall, 'blue', label='train_recall')
@@ -36,10 +39,12 @@ def lr_plot(path):
         plt.plot(learning_rate, test_f_score, 'purple', label='test_f_score')
         plt.grid()
         plt.show()
+        print('over')
 
 
 if __name__ == '__main__':
-    if sys.argv == 3 and sys.argv[1] == 'learning_rate':
+    print(sys.argv)
+    if len(sys.argv) == 3 and sys.argv[1] == 'learning_plot':
         lr_plot(sys.argv[2])
-    elif sys.argv == 3 and sys.argv[1] == 'epoch':
+    elif len(sys.argv) == 3 and sys.argv[1] == 'epoch':
         epoch_plot(sys.argv[2])

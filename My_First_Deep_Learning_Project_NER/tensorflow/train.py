@@ -76,10 +76,10 @@ if len(sys.argv) == 2 and sys.argv[1] == "test":
             print 'Model not found, please train your model first'
         else:
             path = ckpt.model_checkpoint_path
-            print 'loading pre-trained model from %s.....' % path
+            print('loading pre-trained model from %s.....\n' % path)
             saver.restore(sess, path)
             test_input(model, sess, word2id, id2tag, batch_size)
-            # FIXME:为什么运行起来会出问题，debug模式没问题？
+            # FIXME:为什么IDE运行起来会出问题，debug模式、python没问题？应该是pycharm问题
             # FIXME:详见problems.txt
 
 if len(sys.argv) == 3:
