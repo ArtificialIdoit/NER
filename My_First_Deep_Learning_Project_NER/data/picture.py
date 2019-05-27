@@ -37,9 +37,9 @@ def lr_plot(path):
         plt.plot(learning_rate, test_precision, 'green', label='test_precision')
         plt.plot(learning_rate, test_recall, 'orange', label='test_recall')
         plt.plot(learning_rate, test_f_score, 'purple', label='test_f_score')
+        plt.legend()
         plt.grid()
         plt.show()
-        print('over')
 
 
 if __name__ == '__main__':
