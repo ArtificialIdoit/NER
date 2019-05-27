@@ -104,6 +104,7 @@ def train(model, sess, saver, epochs, batch_size, x_train, y_train, x_test, y_te
 def test_input(model, sess, word2id, id2tag, batch_size):
     while True:
         text = raw_input('Enter your input: ').decode('utf-8')
+        # only for python2
         text = re.split(u'[，。！？、‘’“”（）]', text)
         text_id = []
         for sen in text:
@@ -169,7 +170,7 @@ def get_entity(x, y, id2tag):
             if y[i][j] == 0:
                 continue
             if id2tag[y[i][j]][0] == 'B':
-                entity = id2tag[y[i][j]][1:] + ':' + x[i][j]
+                entity = id2tag[y[i][j]][2:] + ':' + x[i][j]
             elif id2tag[y[i][j]][0] == 'M' and len(entity) != 0:
                 entity += x[i][j]
             elif id2tag[y[i][j]][0] == 'E' and len(entity) != 0:
