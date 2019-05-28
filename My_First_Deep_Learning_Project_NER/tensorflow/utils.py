@@ -77,8 +77,13 @@ def train(model, sess, saver, epochs, batch_size, x_train, y_train, x_test, y_te
                 print('zhun:', zhun)
                 print('zhao:', zhao)
                 print('f:', (2 * zhun * zhao) / (zhun + zhao))
+                #FIXME: 输出格式不对
             else:
-                print('zhun:0')
+                print('train')
+                print('zhun:', 0)
+                print('zhao:', 0)
+                print('f:', 0)
+                #FIXME:修改成统一格式
 
             entityres = []
             entityall = []
@@ -97,8 +102,13 @@ def train(model, sess, saver, epochs, batch_size, x_train, y_train, x_test, y_te
                 print('zhun:', zhun)
                 print('zhao:', zhao)
                 print('f:', (2 * zhun * zhao) / (zhun + zhao))
+                #FIXME： 输出格式不对
             else:
-                print('zhun:0')
+                print('test')
+                print('zhun:', 0)
+                print('zhao:', 0)
+                print('f:', 0)
+                #FIXME:修改成统一格式
 
 
 def test_input(model, sess, word2id, id2tag, batch_size):

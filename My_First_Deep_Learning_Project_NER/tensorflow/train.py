@@ -37,7 +37,7 @@ batch_size = 32
 
 config = {}
 config['lr'] = 2.5e-3
-config['embedding_dim'] = 100
+config['embedding_dim'] = 1000
 config['dropout_keep'] = 0.5
 config['sentence_len'] = x_train[0].shape[0]
 config['batch_size'] = batch_size
@@ -55,13 +55,13 @@ if len(sys.argv) == 2 and sys.argv[1] == "pretrained":
             word2vec[line.split()[0]] = map(eval,line.split()[1:])
             # eval :str算数表达式转换成float,map批量操作
 
-    embedding_pre.append(np.random.rand(100).tolist())
+    embedding_pre.append(np.random.rand(config['embedding_dim']).tolist())
     for word in word2id:
         if word2vec.has_key(word):
             print(word)
             embedding_pre.append(word2vec[word])
         else:
-            embedding_pre.append(np.random.rand(100).tolist())
+            embedding_pre.append(np.random.rand(config['embedding_dim']).tolist())
     embedding_pre = np.asarray(embedding_pre)
 
 if len(sys.argv) == 2 and sys.argv[1] == "test":
