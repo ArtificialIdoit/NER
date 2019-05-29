@@ -1,0 +1,196 @@
+0.00286458333333
+./model/model0.ckpt
+model has been saved
+0
+18460
+0
+train
+('zhun:', 0)
+('zhao:', 0)
+('f:', 0)
+test
+('zhun:', 0)
+('zhao:', 0)
+('f:', 0)
+0.8787109375
+./model/model1.ckpt
+0.909049479167
+./model/model2.ckpt
+0.91279296875
+./model/model3.ckpt
+model has been saved
+2
+18460
+0
+train
+('zhun:', 0)
+('zhao:', 0)
+('f:', 0)
+test
+('zhun:', 0)
+('zhao:', 0)
+('f:', 0)
+0.917024739583
+./model/model4.ckpt
+0.923502604167
+./model/model5.ckpt
+0.923665364583
+./model/model6.ckpt
+model has been saved
+7
+18460
+0
+train
+('zhun:', 0)
+('zhao:', 0)
+('f:', 0)
+test
+('zhun:', 0)
+('zhao:', 0)
+('f:', 0)
+0.91962890625
+./model/model7.ckpt
+0.921744791667
+./model/model8.ckpt
+0.920638020833
+./model/model9.ckpt
+model has been saved
+6
+18460
+0
+train
+('zhun:', 0)
+('zhao:', 0)
+('f:', 0)
+test
+('zhun:', 0)
+('zhao:', 0)
+('f:', 0)
+0.923697916667
+./model/model10.ckpt
+0.92109375
+./model/model11.ckpt
+0.919596354167
+./model/model12.ckpt
+model has been saved
+0
+18460
+0
+train
+('zhun:', 0)
+('zhao:', 0)
+('f:', 0)
+test
+('zhun:', 0)
+('zhao:', 0)
+('f:', 0)
+0.93046875
+./model/model13.ckpt
+0.931282552083
+./model/model14.ckpt
+0.9291015625
+./model/model15.ckpt
+model has been saved
+947
+18460
+777
+train
+('zhun:', 0.8204857444561774)
+('zhao:', 0.04209100758396533)
+('f:', 0.08007420003091667)
+test
+('zhun:', 0.8245614035087719)
+('zhao:', 0.04113425520742167)
+('f:', 0.07835945315105036)
+0.932194010417
+./model/model16.ckpt
+0.927213541667
+./model/model17.ckpt
+0.928645833333
+./model/model18.ckpt
+model has been saved
+1970
+18460
+1497
+train
+('zhun:', 0.7598984771573604)
+('zhao:', 0.08109425785482123)
+('f:', 0.14654919236417033)
+test
+('zhun:', 0.7755443886097152)
+('zhao:', 0.08104323472781376)
+('f:', 0.14675118858954042)
+0.934244791667
+./model/model19.ckpt
+0.934114583333
+./model/model20.ckpt
+0.939518229167
+./model/model21.ckpt
+model has been saved
+3825
+18460
+2625
+train
+('zhun:', 0.6862745098039216)
+('zhao:', 0.1421993499458288)
+('f:', 0.23558447386134168)
+test
+('zhun:', 0.6870748299319728)
+('zhao:', 0.141431822159986)
+('f:', 0.23457686166352154)
+0.937434895833
+./model/model22.ckpt
+0.938151041667
+./model/model23.ckpt
+0.94443359375
+./model/model24.ckpt
+model has been saved
+4972
+18460
+3649
+train
+('zhun:', 0.7339098954143202)
+('zhao:', 0.197670639219935)
+('f:', 0.3114544213041994)
+test
+('zhun:', 0.7370151216305062)
+('zhao:', 0.19621914930859444)
+('f:', 0.30992535250207354)
+0.94267578125
+./model/model25.ckpt
+0.9458984375
+./model/model26.ckpt
+0.944759114583
+./model/model27.ckpt
+model has been saved
+9080
+18460
+6772
+train
+('zhun:', 0.7458149779735683)
+('zhao:', 0.3668472372697725)
+('f:', 0.49179375453885266)
+test
+('zhun:', 0.7514598540145986)
+('zhao:', 0.3604060913705584)
+('f:', 0.48716432035963564)
+0.956510416667
+./model/model28.ckpt
+0.957161458333
+./model/model29.ckpt
+0.966861979167
+./model/model30.ckpt
+model has been saved
+12258
+18460
+10013
+train
+('zhun:', 0.8168542992331539)
+('zhao:', 0.5424160346695558)
+('f:', 0.6519304642229312)
+test
+('zhun:', 0.8175729975890704)
+('zhao:', 0.5342201995448976)
+('f:', 0.6461994495024349)
+0.9642578125
+./model/model31.ckpt

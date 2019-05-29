@@ -33,11 +33,11 @@ print('x_train_shape:' + str(x_train.shape) + '\n')
 print('x_train_example:' + str(x_train[0:5, 0:5]) + '\n')
 
 epochs = 32
-batch_size = 32
+batch_size = 512
 
 config = {}
 config['lr'] = 2.5e-3
-config['embedding_dim'] = 1000
+config['embedding_dim'] = 100
 config['dropout_keep'] = 0.5
 config['sentence_len'] = x_train[0].shape[0]
 config['batch_size'] = batch_size

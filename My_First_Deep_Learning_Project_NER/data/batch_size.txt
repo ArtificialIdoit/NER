@@ -1,0 +1,40 @@
+epochs = 32
+batch_size = 128
+
+config = {}
+config['lr'] = 2.5e-3
+config['embedding_dim'] = 100
+config['dropout_keep'] = 0.5
+config['sentence_len'] = x_train[0].shape[0]
+config['batch_size'] = batch_size
+config['vocabulary_size'] = len(word2id) + 1
+config['tag_size'] = len(tag2id)
+config['pretrained'] = False
+embedding_pre = []
+
+train
+('zhun:', 0.9430717317949276)
+('zhao:', 0.9300128810648347)
+('f:', 0.9364967843052479)
+test
+('zhun:', 0.9304224352147675)
+('zhao:', 0.9175564502012953)
+('f:', 0.9239446549748833)
+0.995442708333
+
+
+epochs = 32
+batch_size = 512
+
+config = {}
+config['lr'] = 2.5e-3
+config['embedding_dim'] = 100
+config['dropout_keep'] = 0.5
+config['sentence_len'] = x_train[0].shape[0]
+config['batch_size'] = batch_size
+config['vocabulary_size'] = len(word2id) + 1
+config['tag_size'] = len(tag2id)
+config['pretrained'] = False
+embedding_pre = []
+
+

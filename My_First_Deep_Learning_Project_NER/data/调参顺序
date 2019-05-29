@@ -1,0 +1,5 @@
+方便复原:
+先测的学习率最佳为 2.5e-3
+后测维度，最终选择了100维度.（为了方便使用pretrained word_embedding）
+然后是batch_size
+
