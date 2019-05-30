@@ -32,8 +32,8 @@ print('x_train_type:' + str(type(x_train)) + '\n')
 print('x_train_shape:' + str(x_train.shape) + '\n')
 print('x_train_example:' + str(x_train[0:5, 0:5]) + '\n')
 
-epochs = 64
-batch_size = 512
+epochs = 32
+batch_size = 32
 
 config = {}
 config['lr'] = 2.5e-3
@@ -50,7 +50,7 @@ if len(sys.argv) == 2 and sys.argv[1] == "pretrained":
     print("use pretrained emedding")
     config['pretrained'] = True
     word2vec = {}
-    with codecs.open('vec.txt', 'r','utf-8') as pre_vec:
+    with codecs.open('../data/vec.txt', 'r','utf-8') as pre_vec:
         for line in pre_vec.readlines():
             word2vec[line.split()[0]] = map(eval,line.split()[1:])
             # eval :str算数表达式转换成float,map批量操作

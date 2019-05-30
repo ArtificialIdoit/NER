@@ -6,7 +6,7 @@ import tensorflow as tf
 class Model:
     def __init__(self, config, embedding_pretrained):
         self.config = config
-        self.embedding_pretrained = embedding_pretrained
+        self.embeddings_pretrained = embedding_pretrained
         self.input_data = tf.placeholder(tf.int32, shape=[self.config['batch_size'], self.config['sentence_len']],
                                          name='input_data')
         self.labels = tf.placeholder(tf.int32, shape=[self.config['batch_size'], self.config['sentence_len']],
@@ -21,7 +21,7 @@ class Model:
             word_embeddings = tf.get_variable('word_embeddings',
                                               [self.config['vocabulary_size'], self.config['embedding_dim']])
             if self.config['pretrained']:
-                embedding_init = word_embeddings.assign(self.config['embeddings_pretrained'])
+                embedding_init = word_embeddings.assign(self.embeddings_pretrained)
                 # 这块未来可能要改！
 
             input_embedded = tf.nn.embedding_lookup(word_embeddings, self.input_data)
