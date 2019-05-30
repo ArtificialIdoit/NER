@@ -32,7 +32,7 @@ print('x_train_type:' + str(type(x_train)) + '\n')
 print('x_train_shape:' + str(x_train.shape) + '\n')
 print('x_train_example:' + str(x_train[0:5, 0:5]) + '\n')
 
-epochs = 32
+epochs = 64
 batch_size = 512
 
 config = {}
