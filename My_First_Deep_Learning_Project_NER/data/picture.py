@@ -121,9 +121,9 @@ def dimension_plot(path):
         plt.show()
 
 
-def dimension_plot(path):
+def batch_size_plot(path):
     with codecs.open(path, 'r', 'utf-8') as log:
-        dimension = []
+        batch_size = []
         train_precision = []
         train_recall = []
         train_f_score = []
@@ -134,8 +134,8 @@ def dimension_plot(path):
             line = log.readline()
             if not line:
                 break
-            elif u'config[\'embedding_dim\']' in line:
-                dimension.append(int(line.split(u' ')[-1]))
+            elif u'batch_size' in line:
+                batch_size.append(int(line.split(u' ')[-1]))
             elif u'train\n' == line:
                 train_precision.append(float(log.readline().split(u' ')[-1][:-2]))
                 train_recall.append(float(log.readline().split(u' ')[-1][:-2]))
@@ -145,14 +145,14 @@ def dimension_plot(path):
                     test_precision.append(float(log.readline().split(u' ')[-1][:-2]))
                     test_recall.append(float(log.readline().split(u' ')[-1][:-2]))
                     test_f_score.append(float(log.readline().split(u' ')[-1][:-2]))
-        plt.title('dimension versus rate')
-        plt.plot(dimension, train_precision, 'red', label='train_precision')
-        plt.plot(dimension, train_recall, 'blue', label='train_recall')
-        plt.plot(dimension, train_f_score, 'yellow', label='train_f_score')
-        plt.plot(dimension, test_precision, 'green', label='test_precision')
-        plt.plot(dimension, test_recall, 'orange', label='test_recall')
-        plt.plot(dimension, test_f_score, 'purple', label='test_f_score')
-        for a, b in zip(dimension, train_precision):
+        plt.title('batch_size versus rate')
+        plt.plot(batch_size, train_precision, 'red', label='train_precision')
+        plt.plot(batch_size, train_recall, 'blue', label='train_recall')
+        plt.plot(batch_size, train_f_score, 'yellow', label='train_f_score')
+        plt.plot(batch_size, test_precision, 'green', label='test_precision')
+        plt.plot(batch_size, test_recall, 'orange', label='test_recall')
+        plt.plot(batch_size, test_f_score, 'purple', label='test_f_score')
+        for a, b in zip(batch_size, train_precision):
             plt.text(a,0,a)
         plt.legend()
         plt.grid()
@@ -166,3 +166,5 @@ if __name__ == '__main__':
         epoch_plot(sys.argv[2])
     elif len(sys.argv) == 3 and sys.argv[1] == 'dimension_plot':
         dimension_plot(sys.argv[2])
+    elif len(sys.argv) == 3 and sys.argv[1] == 'batch_size_plot':
+        batch_size_plot(sys.argv[2])

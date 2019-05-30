@@ -26,7 +26,7 @@ with codecs.open('../data/ccksdata.pkl', 'rb') as inp:
     y_valid = pickle.load(inp)
 print('word2id_type:' + str(type(word2id)) + '\n')
 print('word2id_shape:' + str(word2id.shape) + '\n')
-print('word2id_eample:\n' + str(word2id.head()) + '\n')
+print('word2id_example:\n' + str(word2id.head()) + '\n')
 
 print('x_train_type:' + str(type(x_train)) + '\n')
 print('x_train_shape:' + str(x_train.shape) + '\n')

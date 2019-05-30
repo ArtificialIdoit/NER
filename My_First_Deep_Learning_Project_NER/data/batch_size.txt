@@ -1,16 +1,28 @@
 epochs = 32
-batch_size = 128
+batch_size = 32
 
 config = {}
 config['lr'] = 2.5e-3
 config['embedding_dim'] = 100
 config['dropout_keep'] = 0.5
 config['sentence_len'] = x_train[0].shape[0]
-config['batch_size'] = batch_size
 config['vocabulary_size'] = len(word2id) + 1
 config['tag_size'] = len(tag2id)
 config['pretrained'] = False
 embedding_pre = []
+
+
+train
+('zhun:', 0.9642857142857143)
+('zhao:', 0.9625823028745785)
+('f:', 0.9634332556457447)
+test
+('zhun:', 0.9352678571428571)
+('zhao:', 0.933184855233853)
+('f:', 0.9342251950947602)
+
+epochs = 32
+batch_size = 128
 
 train
 ('zhun:', 0.9430717317949276)
@@ -26,15 +38,24 @@ test
 epochs = 32
 batch_size = 512
 
-config = {}
-config['lr'] = 2.5e-3
-config['embedding_dim'] = 100
-config['dropout_keep'] = 0.5
-config['sentence_len'] = x_train[0].shape[0]
-config['batch_size'] = batch_size
-config['vocabulary_size'] = len(word2id) + 1
-config['tag_size'] = len(tag2id)
-config['pretrained'] = False
-embedding_pre = []
+train
+('zhun:', 0.8746689659419844)
+('zhao:', 0.7693391115926327)
+('f:', 0.8186298527250194)
+test
+('zhun:', 0.875624875024995)
+('zhao:', 0.766497461928934)
+('f:', 0.8174351316035094)
 
 
+epochs = 32
+batch_size = 1024
+
+train
+('zhun:', 0.651840490797546)
+('zhao:', 0.09209100758396534)
+('f:', 0.16138219100056958)
+test
+('zhun:', 0.6624203821656051)
+('zhao:', 0.09102047960791178)
+('f:', 0.16004924592182207)
