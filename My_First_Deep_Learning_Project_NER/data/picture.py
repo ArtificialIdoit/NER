@@ -160,7 +160,7 @@ def batch_size_plot(path):
 
 if __name__ == '__main__':
     print(sys.argv)
-    if len(sys.argv) == 3 and sys.argv[1] == 'learning_plot':
+    if len(sys.argv) == 3 and sys.argv[1] == 'learning_rate_plot':
         lr_plot(sys.argv[2])
     elif len(sys.argv) == 3 and sys.argv[1] == 'epoch_plot':
         epoch_plot(sys.argv[2])
