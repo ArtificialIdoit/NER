@@ -158,6 +158,69 @@ def batch_size_plot(path):
         plt.grid()
         plt.show()
 
+def pretrained_plot(pretrained, unpretrained):
+    with codecs.open(pretrained, 'r', 'utf-8') as pretrained_log,codecs.open(unpretrained, 'r', 'utf-8') as unpretrained_log:
+        pretrained_epoch = []
+        pretrained_train_precision = []
+        pretrained_train_recall = []
+        pretrained_train_f_score = []
+        pretrained_test_precision = []
+        pretrained_test_recall = []
+        pretrained_test_f_score = []
+        while True:
+            line = pretrained_log.readline()
+            if not line:
+                break
+            elif u'/model/model' in line:
+                epoch_num = int(line.split('model')[-1].split(u'.')[0])
+                if epoch_num % 3 == 0:
+                    pretrained_epoch.append(epoch_num)
+            elif u'train\n' == line:
+                pretrained_train_precision.append(float(pretrained_log.readline().split(u' ')[-1][:-2]))
+                pretrained_train_recall.append(float(pretrained_log.readline().split(u' ')[-1][:-2]))
+                pretrained_train_f_score.append(float(pretrained_log.readline().split(u' ')[-1][:-2]))
+                line = pretrained_log.readline()
+                if u'test\n' == line:
+                    pretrained_test_precision.append(float(pretrained_log.readline().split(u' ')[-1][:-2]))
+                    pretrained_test_recall.append(float(pretrained_log.readline().split(u' ')[-1][:-2]))
+                    pretrained_test_f_score.append(float(pretrained_log.readline().split(u' ')[-1][:-2]))
+
+        unpretrained_epoch = []
+        unpretrained_train_precision = []
+        unpretrained_train_recall = []
+        unpretrained_train_f_score = []
+        unpretrained_test_precision = []
+        unpretrained_test_recall = []
+        unpretrained_test_f_score = []
+        while True:
+            line = unpretrained_log.readline()
+            if not line:
+                break
+            elif u'/model/model' in line:
+                epoch_num = int(line.split('model')[-1].split(u'.')[0])
+                if epoch_num % 3 == 0:
+                    unpretrained_epoch.append(epoch_num)
+            elif u'train\n' == line:
+                unpretrained_train_precision.append(float(unpretrained_log.readline().split(u' ')[-1][:-2]))
+                unpretrained_train_recall.append(float(unpretrained_log.readline().split(u' ')[-1][:-2]))
+                unpretrained_train_f_score.append(float(unpretrained_log.readline().split(u' ')[-1][:-2]))
+                line = unpretrained_log.readline()
+                if u'test\n' == line:
+                    unpretrained_test_precision.append(float(unpretrained_log.readline().split(u' ')[-1][:-2]))
+                    unpretrained_test_recall.append(float(unpretrained_log.readline().split(u' ')[-1][:-2]))
+                    unpretrained_test_f_score.append(float(unpretrained_log.readline().split(u' ')[-1][:-2]))
+
+        plt.title('pretrained vs unpretrained')
+        plt.plot(pretrained_epoch, pretrained_train_f_score, 'yellow', label='pretrained_train_f_score')
+        plt.plot(pretrained_epoch, pretrained_test_f_score, 'purple', label='pretrained_test_f_score')
+        plt.plot(unpretrained_epoch, unpretrained_train_f_score, 'green', label='unpretrained_train_f_score')
+        plt.plot(unpretrained_epoch, unpretrained_test_f_score, 'red', label='unpretrained_test_f_score')
+        for a, b in zip(pretrained_epoch, pretrained_train_precision):
+            plt.text(a,0,a)
+        plt.legend()
+        plt.grid()
+        plt.show()
+
 if __name__ == '__main__':
     print(sys.argv)
     if len(sys.argv) == 3 and sys.argv[1] == 'learning_rate_plot':
@@ -168,3 +231,5 @@ if __name__ == '__main__':
         dimension_plot(sys.argv[2])
     elif len(sys.argv) == 3 and sys.argv[1] == 'batch_size_plot':
         batch_size_plot(sys.argv[2])
+    elif len(sys.argv)  == 4 and sys.argv[1] == 'pretrained_vs_unpretrained':
+        pretrained_plot(sys.argv[2],sys.argv[3])

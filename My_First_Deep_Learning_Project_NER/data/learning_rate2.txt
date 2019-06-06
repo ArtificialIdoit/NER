@@ -89,8 +89,81 @@ test
 ./model/model31.ckpt
 
 
+config = {}
+config['lr'] = 7.5e-3
+config['embedding_dim'] = 100
+config['dropout_keep'] = 0.5
+config['sentence_len'] = x_train[0].shape[0]
+config['batch_size'] = batch_size
+config['vocabulary_size'] = len(word2id) + 1
+config['tag_size'] = len(tag2id)
+config['pretrained'] = False
+
+train
+('zhun:', 0.9295789698653558)
+('zhao:', 0.9313205931160002)
+('f:', 0.9304489664946386)
+test
+('zhun:', 0.9102103642893792)
+('zhao:', 0.9117697447318828)
+('f:', 0.9109893871961656)
 
 
+config['lr'] = 6.25e-3
+config['embedding_dim'] = 100
+config['dropout_keep'] = 0.5
+config['sentence_len'] = x_train[0].shape[0]
+config['batch_size'] = batch_size
+config['vocabulary_size'] = len(word2id) + 1
+config['tag_size'] = len(tag2id)
+config['pretrained'] = False
+
+train
+('zhun:', 0.9421903436462905)
+('zhao:', 0.942240779401531)
+('f:', 0.9422155608489682)
+test
+('zhun:', 0.9220489977728286)
+('zhao:', 0.9220489977728286)
+('f:', 0.9220489977728284)
+
+
+config = {}
+config['lr'] = 5e-3
+config['embedding_dim'] = 100
+config['dropout_keep'] = 0.5
+config['sentence_len'] = x_train[0].shape[0]
+config['batch_size'] = batch_size
+config['vocabulary_size'] = len(word2id) + 1
+config['tag_size'] = len(tag2id)
+config['pretrained'] = False
+
+train
+('zhun:', 0.9530380830124091)
+('zhao:', 0.9538033295862106)
+('f:', 0.9534205527463413)
+test
+('zhun:', 0.9277377274287676)
+('zhao:', 0.925989378105191)
+('f:', 0.9268627282860328)
+
+config['lr'] = 3.75e-3
+config['embedding_dim'] = 100
+config['dropout_keep'] = 0.5
+config['sentence_len'] = x_train[0].shape[0]
+config['batch_size'] = batch_size
+config['vocabulary_size'] = len(word2id) + 1
+config['tag_size'] = len(tag2id)
+config['pretrained'] = False
+
+train
+('zhun:', 0.9605516356638871)
+('zhao:', 0.9619399389754296)
+('f:', 0.9612452860466982)
+test
+('zhun:', 0.934395340870161)
+('zhao:', 0.9345554223059791)
+('f:', 0.9344753747323341)
 
 
 config['lr'] = 2.5e-3
